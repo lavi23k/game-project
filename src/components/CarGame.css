@@ -1,0 +1,59 @@
+.car-game-container {
+  text-align: center;
+  background-color: #e0e0e0; /* Arka plan rengini ayarlayın */
+  padding: 20px;
+  min-height: 100vh;
+  background-image: url('/public/images/background.jpg'); /* Arka plan resmi (daha estetik bir görüntü için) */
+  background-size: cover;
+  background-position: center;
+}
+
+.intro, .result, .game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.car-image {
+  width: 500px; /* Araba resminin genişliği */
+  height: 300px; /* Araba resminin yüksekliği */
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  object-fit: contain; /* Resmin kapsayıcı alanı doldurmasını sağlar */
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #007bff; /* Buton sınır çizgisi */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: white; /* Butonun arka planı */
+  color: #007bff; /* Buton yazı rengi */
+}
+
+button:hover {
+  background-color: #007bff; /* Üzerine gelindiğinde arka plan rengi */
+  color: white; /* Üzerine gelindiğinde yazı rengi */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.start-button, .try-again-button {
+  margin-top: 20px;
+}
+
+.submit-button {
+  margin-top: 10px;
+}

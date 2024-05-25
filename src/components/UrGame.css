@@ -1,0 +1,58 @@
+.ur-game-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 5px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  position: relative;
+}
+
+.piece {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.lightblue {
+  background-color: lightblue;
+}
+
+.lightcoral {
+  background-color: lightcoral;
+}
+
+.roll-dice-button, .add-piece-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  color: #007bff;
+}
+
+.roll-dice-button:hover, .add-piece-button:hover {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
