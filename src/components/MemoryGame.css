@@ -1,0 +1,173 @@
+/* Main Memory Game CSS */
+.memory-game-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  background-image: url('../../public/images/background.jpg');
+}
+
+.memory-game-selection {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.memory-game-option {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.memory-game-button {
+  display: block;
+  width: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.memory-game-button:hover {
+  background-color: #333;
+}
+
+.memory-game-button:active {
+  background-color: #111;
+}
+
+.memory-game-header {
+  font-size: 36px;
+  color: black;
+  margin-top: 20px;
+}
+
+/* Verbal Memory CSS */
+.verbal-memory-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.verbal-memory-info {
+  margin-bottom: 20px;
+}
+
+.verbal-memory-round {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.verbal-memory-lives {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.verbal-memory-button {
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.verbal-memory-button:hover {
+  background-color: #333;
+}
+
+.verbal-memory-button:active {
+  background-color: #111;
+}
+
+/* Number Memory CSS */
+.number-memory-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.number-memory-info {
+  margin: 10px 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.number-memory-round {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.number-memory-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.number-memory-submit-button {
+  display: inline-block;
+  margin: 20px 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none !important;
+}
+
+.number-memory-submit-button:hover {
+  background-color: #333;
+}
+
+.number-memory-submit-button:active {
+  background-color: #111;
+}
+
+.number-memory-timer {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.number-memory-feedback {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.number-memory-correct {
+  color: green;
+}
+
+.number-memory-incorrect {
+  color: red;
+}
+
+.progress-bar {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 10px;
+  background-color: #4caf50;
+  transition: width 1s linear;
+}

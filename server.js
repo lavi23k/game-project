@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-import App from './App'; // App.js dosyasını dahil edin
+import App from './App';
 
 const app = express();
 const port = 3000;

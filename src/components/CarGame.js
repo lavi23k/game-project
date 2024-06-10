@@ -1,75 +1,119 @@
 import React, { useState } from 'react';
 import './CarGame.css';
 
-const carData = [
-    { src: '/images/cars/car1.jpeg', year: 1994 },
-    { src: '/images/cars/car2.webp', year: 1975 },
-    { src: '/images/cars/car3.jpg', year: 1979 },
-    { src: '/images/cars/car4.jpg', year: 2014 },
-    { src: '/images/cars/car5.jpg', year: 1996 },
-    { src: '/images/cars/car6.jpg', year: 2009 },
-    { src: '/images/cars/car7.jpg', year: 1998 },
-    { src: '/images/cars/car8.jpg', year: 2004 },
-    { src: '/images/cars/car9.jpg', year: 2005 },
-    { src: '/images/cars/car10.jpg', year: 2004 }
+const cars = [
+  { name: "Audi 80", year: 1994, image: '/images/cars/audi_80.jpg' },
+  { name: "BMW 3.0 CSL", year: 1975, image: '/images/cars/bmw_csl.webp' },
+  { name: "BMW M1", year: 1979, image: '/images/cars/bmw_m1.jpg' },
+  { name: "Mercedes-Benz C250", year: 2014, image: '/images/cars/mercedes_c250.jpg' },
+  { name: "Kia Sportage", year: 1996, image: '/images/cars/kia_sportage.jpg' },
+  { name: "Hyundai Sonata", year: 2009, image: '/images/cars/hyundai_sonata.jpg' },
+  { name: "Toyota Corolla", year: 1998, image: '/images/cars/toyota_carolla.jpg' },
+  { name: "Ford F-150", year: 2004, image: '/images/cars/ford_f150.jpg' },
+  { name: "Nissan Primera SX", year: 2005, image: '/images/cars/nissan_primera.jpg' },
+  { name: "Mercedes-Benz E55 AMG", year: 2004, image: '/images/cars/mercedes_e55.jpg' }
 ];
 
 const CarGame = () => {
-    const [currentCarIndex, setCurrentCarIndex] = useState(0);
-    const [guess, setGuess] = useState('');
-    const [score, setScore] = useState(0);
-    const [showResult, setShowResult] = useState(false);
-    const [gameStarted, setGameStarted] = useState(false);
+  const [currentRound, setCurrentRound] = useState(1);
+  const [currentGuess, setCurrentGuess] = useState('');
+  const [score, setScore] = useState(0);
+  const [results, setResults] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [guessSubmitted, setGuessSubmitted] = useState(false);
 
-    const handleGuessChange = (e) => setGuess(e.target.value);
+  const handleGuessChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 4 && /^\d*$/.test(value)) {
+      setCurrentGuess(value);
+    }
+  };
 
-    const handleSubmitGuess = () => {
-        if (parseInt(guess) === carData[currentCarIndex].year) {
-            setScore(score + 1);
-        }
-        setCurrentCarIndex(currentCarIndex + 1);
-        setGuess('');
-        if (currentCarIndex === carData.length - 1) {
-            setShowResult(true);
-        }
-    };
+  const handleSubmitGuess = () => {
+    if (currentGuess.length !== 4) return;
 
-    const handleStartGame = () => {
-        setGameStarted(true);
-        setCurrentCarIndex(0);
-        setScore(0);
-        setShowResult(false);
-    };
+    const car = cars[currentRound - 1];
+    const yearGuess = parseInt(currentGuess, 10);
+    const points = Math.max(0, 100 - Math.abs(car.year - yearGuess));
 
-    return (
-        <div className="car-game-container">
-            {!gameStarted ? (
-                <div className="intro">
-                    <h1>Car Guessing Game</h1>
-                    <p>Try to guess the manufacturing year of the car shown in the picture.</p>
-                    <button className="start-button" onClick={handleStartGame}>Start Game</button>
-                </div>
-            ) : showResult ? (
-                <div className="result">
-                    <h1>Good Try</h1>
-                    <p>You guessed correctly {score} out of {carData.length} cars.</p>
-                    <p>Your success rate is {(score / carData.length) * 100}%</p>
-                    <button className="try-again-button" onClick={handleStartGame}>Try Again</button>
-                </div>
-            ) : (
-                <div className="game">
-                    <img className="car-image" src={carData[currentCarIndex].src} alt="car" />
-                    <input
-                        type="number"
-                        value={guess}
-                        onChange={handleGuessChange}
-                        placeholder="Guess the year"
-                    />
-                    <button className="submit-button" onClick={handleSubmitGuess}>Submit Guess</button>
-                </div>
-            )}
+    setResults([...results, { ...car, guess: yearGuess, points }]);
+    setScore(score + points);
+    setCurrentGuess('');
+    setGuessSubmitted(true);
+  };
+
+  const handleNextRound = () => {
+    if (currentRound === cars.length) {
+      setGameOver(true);
+    } else {
+      setCurrentRound(currentRound + 1);
+      setGuessSubmitted(false);
+    }
+  };
+
+  const handlePlayAgain = () => {
+    setCurrentRound(1);
+    setCurrentGuess('');
+    setScore(0);
+    setResults([]);
+    setGameOver(false);
+    setGameStarted(true);
+    setGuessSubmitted(false);
+  };
+
+  const handleStartGame = () => {
+    setGameStarted(true);
+  };
+
+  return (
+    <div className="car-game-container car-game-background">
+      {!gameStarted ? (
+        <div className="start-screen">
+          <h1>Car Guessing Game</h1>
+          <p>Guess the year of the car to score points. The closer you are, the more points you get!</p>
+          <button className="start-button" onClick={handleStartGame}>Start</button>
         </div>
-    );
+      ) : gameOver ? (
+        <div className="end-screen">
+          <h1>Car Guessing Game</h1>
+          <h2>Points: {score}</h2>
+          <button className="play-again-button" onClick={handlePlayAgain}>Play Again</button>
+        </div>
+      ) : (
+        <div>
+          <h1>Round {currentRound}/{cars.length}</h1>
+          <div className="car-image-container">
+            <img src={cars[currentRound - 1].image} alt={cars[currentRound - 1].name} className="car-image"/>
+          </div>
+          <h2 className="car-name">{cars[currentRound - 1].name}</h2>
+          {!guessSubmitted ? (
+            <>
+              <input
+                type="text"
+                placeholder="Guess the year"
+                value={currentGuess}
+                onChange={handleGuessChange}
+                maxLength={4}
+                className="year-input"
+              />
+              <button className="submit-button" onClick={handleSubmitGuess} disabled={currentGuess.length !== 4}>
+                Submit Guess
+              </button>
+            </>
+          ) : (
+            <div className="result">
+              <p className="result-text">Correct Year: {cars[currentRound - 1].year}</p>
+              <p className="points">Points: {results[currentRound - 1].points}</p>
+              <button className="next-button" onClick={handleNextRound}>
+                Next
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default CarGame;

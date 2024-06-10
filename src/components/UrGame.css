@@ -1,16 +1,40 @@
 .ur-game-container {
   text-align: center;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #f0f0f0;
   min-height: 100vh;
+  background-image: url('../../public/images/background2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(4, 60px);
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(8, 60px);
   gap: 5px;
   justify-content: center;
-  margin: 20px 0;
+  margin: 0 20px;
+  grid-template-areas: 
+    "a1 a2 a3"
+    "b1 b2 b3"
+    "c1 c2 c3"
+    "d1 d2 d3"
+    ".  e2 . "
+    ".  f2 . "
+    "g1 g2 g3"
+    "h1 h2 h3";
 }
 
 .square {
@@ -32,15 +56,15 @@
   position: absolute;
 }
 
-.lightblue {
-  background-color: lightblue;
+.orange {
+  background-color: orange;
 }
 
-.lightcoral {
-  background-color: lightcoral;
+.purple {
+  background-color: purple;
 }
 
-.roll-dice-button, .add-piece-button {
+.roll-dice-button, .add-piece-button, .move-piece-button {
   padding: 10px 20px;
   font-size: 16px;
   border: 2px solid #007bff;
@@ -49,10 +73,91 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   background-color: white;
   color: #007bff;
+  margin-top: 10px;
 }
 
-.roll-dice-button:hover, .add-piece-button:hover {
+.roll-dice-button:hover, .add-piece-button:hover, .move-piece-button:hover {
   background-color: #007bff;
   color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rosette {
+  width: 30px;
+  height: 30px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.safe-zone {
+  border: 2px solid green;
+  border-radius: 50%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.info-container {
+  position: absolute;
+  top: 82px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.info-box, .player-box {
+  background-color: white;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-box p {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.player-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.piece-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.piece-item {
+  width: 30px;
+  height: 30px;
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.piece-item.on-board {
+  background-color: green;
+}
+
+.piece-item.off-board {
+  background-color: red;
+}
+
+.piece-item.selected {
+  border: 2px solid blue;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }

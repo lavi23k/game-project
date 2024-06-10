@@ -1,59 +1,88 @@
-.car-game-container {
-  text-align: center;
-  background-color: #e0e0e0; /* Arka plan rengini ayarlayın */
-  padding: 20px;
-  min-height: 100vh;
-  background-image: url('/public/images/background.jpg'); /* Arka plan resmi (daha estetik bir görüntü için) */
+.car-game-background {
+  background-image: url('../../public/images/background.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
-.intro, .result, .game {
+.car-game-container {
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-screen, .end-screen {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100%;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+
+.car-image-container {
+  max-width: 100%;
+  margin: 20px auto;
 }
 
 .car-image {
-  width: 500px; /* Araba resminin genişliği */
-  height: 300px; /* Araba resminin yüksekliği */
-  margin-bottom: 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  object-fit: contain; /* Resmin kapsayıcı alanı doldurmasını sağlar */
+  height: 457px;
+  width: auto;
 }
 
-input {
+.year-input {
+  margin-top: 20px;
   padding: 10px;
   font-size: 16px;
-  margin-right: 10px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-button {
+.submit-button, .next-button, .start-button, .play-again-button {
   padding: 10px 20px;
   font-size: 16px;
-  border: 2px solid #007bff; /* Buton sınır çizgisi */
-  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: white; /* Butonun arka planı */
-  color: #007bff; /* Buton yazı rengi */
-}
-
-button:hover {
-  background-color: #007bff; /* Üzerine gelindiğinde arka plan rengi */
-  color: white; /* Üzerine gelindiğinde yazı rengi */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.start-button, .try-again-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
   margin-top: 20px;
 }
 
-.submit-button {
-  margin-top: 10px;
+.submit-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.result-text, .points, .car-name {
+  font-size: 18px;
+  margin: 10px 0;
+  color: black;
+  font-weight: bold;
+}
+
+.points {
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.next-button {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.car-game-container {
+  padding-top: 10px;
 }
