@@ -1,6 +1,14 @@
-/* SimonGame.css */
 .simon-app {
   text-align: center;
+  background-image: url(../../public/images/background4.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .simon-board {
@@ -9,7 +17,7 @@
   grid-template-rows: repeat(3, 100px);
   gap: 10px;
   justify-content: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .simon-square {
@@ -22,4 +30,22 @@
 
 .simon-square.simon-active {
   background-color: yellow;
+}
+
+.game-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.game-button:hover {
+  background-color: #45a049;
 }
