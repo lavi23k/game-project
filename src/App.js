@@ -5,6 +5,7 @@ import UrGame from './components/UrGame';
 import MemoryGame from './components/MemoryGame';
 import VerbalMemory from './components/VerbalMemory';
 import NumberMemory from './components/NumberMemory';
+import SimonGame from './components/SimonGame'
 import './components/styles.css';
 
 const Home = () => {
@@ -27,7 +28,12 @@ const Home = () => {
             <img src="/images/memorygame.png" alt="Memory Game Thumbnail" />
           </Link>
         </div>
-        {[...Array(6)].map((_, i) => (
+        <div className="game-box">
+          <Link to="/simon-game">
+            <img src="/images/simongame.png" alt="Simon Game Thumbnail" />
+          </Link>
+        </div>
+        {[...Array(5)].map((_, i) => (
           <div className="game-box" key={i}>
             <img src="/images/background1.jpg" alt="Placeholder Thumbnail" />
           </div>
@@ -52,6 +58,7 @@ const App = () => {
         <Route path="/memory-game" element={<MemoryGame />} />
         <Route path="/verbal-memory" element={<VerbalMemory />} />
         <Route path="/number-memory" element={<NumberMemory />} />
+        <Route path="/simon-game" element={<SimonGame />} />
       </Routes>
     </Router>
   );

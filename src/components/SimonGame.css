@@ -1,0 +1,25 @@
+/* SimonGame.css */
+.simon-app {
+  text-align: center;
+}
+
+.simon-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.simon-square {
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border: 2px solid darkgray;
+  cursor: pointer;
+}
+
+.simon-square.simon-active {
+  background-color: yellow;
+}
