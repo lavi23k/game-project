@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import './components/styles.css';
+import './components/HomePage.css'
 import CarGame from './components/CarGame';
 import UrGame from './components/UrGame';
 import MemoryGame from './components/MemoryGame';
 import VerbalMemory from './components/VerbalMemory';
 import NumberMemory from './components/NumberMemory';
 import SimonGame from './components/SimonGame'
-import './components/styles.css';
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       <div className="game-selection">
         <div className="game-box">
           <Link to="/car-game">
-            <img src="/images/cargame.jpg" alt="Car Game Thumbnail" />
+            <img src="/images/cargame.png" alt="Car Game Thumbnail" />
           </Link>
         </div>
         <div className="game-box">
@@ -30,7 +31,7 @@ const Home = () => {
         </div>
         <div className="game-box">
           <Link to="/simon-game">
-            <img src="/images/simongame.png" alt="Simon Game Thumbnail" />
+            <img src="/images/simongame.jpg" alt="Simon Game Thumbnail" />
           </Link>
         </div>
         {[...Array(5)].map((_, i) => (

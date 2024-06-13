@@ -71,7 +71,7 @@ const CarGame = () => {
       {!gameStarted ? (
         <div className="start-screen">
           <h1>Car Guessing Game</h1>
-          <p>Guess the year of the car to score points. The closer you are, the more points you get!</p>
+          <p><b>Guess the year of the car to score points. The closer you are, the more points you get!</b></p>
           <button className="start-button" onClick={handleStartGame}>Start</button>
         </div>
       ) : gameOver ? (

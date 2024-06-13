@@ -1,9 +1,12 @@
 .car-game-background {
-  background-image: url('../../public/images/background.jpg');
+  background-image: url('../../public/images/cargamebackground.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 }
 
 .car-game-container {

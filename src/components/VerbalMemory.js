@@ -65,8 +65,10 @@ const VerbalMemory = () => {
       <h1 className="verbal-memory-round">Round {round}</h1>
       <p className="verbal-memory-lives">Lives: {lives}</p>
       <p className="verbal-memory-info">{currentWord}</p>
-      <button className="verbal-memory-button" onClick={() => handleGuess(true)}>Seen</button>
-      <button className="verbal-memory-button" onClick={() => handleGuess(false)}>New</button>
+      <div className="verbal-memory-buttons">
+        <button className="verbal-memory-button" onClick={() => handleGuess(true)}>Seen</button>
+        <button className="verbal-memory-button" onClick={() => handleGuess(false)}>New</button>
+      </div>
     </div>
   );
 };
