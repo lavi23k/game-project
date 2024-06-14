@@ -1,15 +1,15 @@
-/* Main Memory Game CSS */
+/* Memory Game CSS */
 .memory-game-container {
-  text-align: center;
   background-image: url('../../public/images/memorygamebackground.jpg');
+  text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .memory-game-selection {
@@ -20,28 +20,30 @@
 }
 
 .memory-game-option {
+  text-align: center;
+  background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
-  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: 300px;
-  text-align: center;
+  
 }
 
 .memory-game-button {
   display: block;
   width: auto;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
-  background-color: black;
-  color: white;
   border: none;
-  border-radius: 5px;
-  margin-top: 10px;
   text-align: center;
   text-decoration: none;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+  
 }
 
 .memory-game-button:hover {
@@ -53,39 +55,39 @@
 }
 
 .memory-game-header {
-  font-size: 36px;
   color: black;
+  font-size: 36px;
   margin-top: 20px;
 }
 
 /* Verbal Memory CSS */
 .verbal-memory-container {
-  text-align: center;
   background-image: url(../../public/images/verbalgamebackground.jpg);
+  text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .verbal-memory-info {
-  margin-bottom: 20px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .verbal-memory-round {
-  font-size: 36px;
   font-weight: bold;
+  font-size: 36px;
 }
 
 .verbal-memory-lives {
+  font-weight: bold;
   font-size: 24px;
   margin-top: 10px;
-  font-weight: bold;
 }
 
 .verbal-memory-buttons {
@@ -97,15 +99,15 @@
 
 .verbal-memory-button {
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
+  border: none;
+  text-decoration: none;
   background-color: black;
   color: white;
-  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
   border-radius: 5px;
-  text-decoration: none;
-  width: 100px;
+  width: 150px;
 }
 
 .verbal-memory-button:hover {
@@ -118,40 +120,48 @@
 
 /* Number Memory CSS */
 .number-memory-container {
+  background-image: url(../../public/images/verbalgamebackground.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 50px;
+  min-height: 100vh;
 }
 
 .number-memory-info {
+  font-weight: bold;
   margin: 10px 0;
   font-size: 36px;
-  font-weight: bold;
 }
 
 .number-memory-round {
-  font-size: 36px;
   font-weight: bold;
+  font-size: 36px;
 }
 
 .number-memory-input {
+  border: 2px solid black;
   padding: 10px;
   font-size: 16px;
   width: 200px;
-  border: 2px solid black;
   border-radius: 5px;
 }
 
 .number-memory-submit-button {
   display: inline-block;
+  cursor: pointer;
+  border: none;
+  text-decoration: none !important;
+  background-color: black;
+  color: white;
   margin: 20px 10px;
   padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  border: none;
   border-radius: 5px;
-  text-decoration: none !important;
 }
 
 .number-memory-submit-button:hover {
@@ -181,15 +191,15 @@
 }
 
 .progress-bar {
-  width: 200px;
-  margin: 0 auto;
-  background-color: #ddd;
-  border-radius: 5px;
   overflow: hidden;
+  background-color: #ddd;
+  margin: 0 auto;
+  width: 200px;
+  border-radius: 5px;
 }
 
 .progress {
-  height: 10px;
-  background-color: #4caf50;
   transition: width 1s linear;
+  background-color: #4caf50;
+  height: 10px;  
 }

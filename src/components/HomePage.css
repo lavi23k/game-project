@@ -1,33 +1,33 @@
 .home-container {
   text-align: center;
+  overflow-y: auto;
   padding: 20px;
   height: 100vh;
-  overflow-y: auto; 
 }
 
 .game-selection {
   display: grid;
+  justify-content: center;
+  margin: 5px auto;
   grid-template-columns: repeat(3, 1fr);
   max-width: 1800px;
   gap: 10px;
-  margin: 5px auto;
-  justify-content: center;
 }
 
 .game-box {
-  width: 450px; 
-  height: 170px; 
-  border: 1px solid black;
-  cursor: pointer;
-  transition: transform 0.2s;
   overflow: hidden;
   box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 450px; 
+  height: 170px; 
+  transition: transform 0.2s;
 }
 
 .game-box img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .game-box:hover {
@@ -35,19 +35,20 @@
 }
 
 footer {
-  flex-shrink: 0;
-  background: white;
-  padding: 20px 0;
   text-align: center;
+  background: white;
+  flex-shrink: 0;
+  padding: 20px 0;
 }
 
 .buy-coffee-button {
-  padding: 10px 20px;
-  font-size: 16px;
+  border: none;
   cursor: pointer;
   background-color: black;
   color: white;
-  border: none;
+  transform: translateX(-15%);
+  padding: 10px 20px;
+  font-size: 16px;
   border-radius: 5px;
 }
 
@@ -61,12 +62,14 @@ footer {
 
 @media (max-width: 1200px) {
   .game-selection {
+    justify-content: center;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .game-selection {
+    justify-content: center;
     grid-template-columns: 1fr;
   }
 }

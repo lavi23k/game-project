@@ -17,8 +17,8 @@ const UrGame = () => {
   const [selectedPiece, setSelectedPiece] = useState(null);
 
   const paths = [
-    [9, 6, 3, 0, 1, 4, 7, 10, 11, 12, 15, 18, 19, 16],
-    [11, 8, 5, 2, 1, 4, 7, 10, 13, 14, 17, 20, 19, 16]
+    [9, 6, 3, 0, 1, 4, 7, 10, 11, 12, 15, 18, 19, 16], 
+    [11, 8, 5, 2, 1, 4, 7, 10, 13, 14, 17, 20, 19, 16] 
   ];
 
   const rollDice = () => {
@@ -32,7 +32,8 @@ const UrGame = () => {
   };
 
   const handlePieceClick = (pieceIndex) => {
-    if (diceRoll > 0 && !pieceIndex.startsWith('R')) {
+    const player = parseInt(pieceIndex.split('-')[0], 10);
+    if (diceRoll > 0 && player === playerTurn) {
       setSelectedPiece(pieceIndex);
     }
   };
@@ -67,7 +68,7 @@ const UrGame = () => {
       setSelectedPiece(null);
       setDiceRoll(0);
 
-      if (!rosettePositions.includes(newPosition)) {
+      if (!rosettePositions.includes(newPosition) && newPosition !== 10) {
         setPlayerTurn(playerTurn === 1 ? 2 : 1);
       }
     }
@@ -86,12 +87,13 @@ const UrGame = () => {
     const newBoard = [...board];
     const newPosition = path[newPos];
     const isRosette = rosettePositions.includes(newPosition);
+    const isSafeZone = safeZones.includes(newPosition);
 
     if (newBoard[newPosition] && newBoard[newPosition].split('-')[0] === String(playerTurn)) {
       return;
     }
 
-    if (newBoard[newPosition] && newBoard[newPosition].split('-')[0] !== String(playerTurn) && !safeZones.includes(newPosition)) {
+    if (newBoard[newPosition] && newBoard[newPosition].split('-')[0] !== String(playerTurn) && !isSafeZone) {
       const opponentOnBoard = playerTurn === 1 ? player2Pieces : player1Pieces;
       const setOpponentOnBoard = playerTurn === 1 ? setPlayer2Pieces : setPlayer1Pieces;
 
@@ -121,9 +123,16 @@ const UrGame = () => {
       }
       newBoard[newPosition] = null;
       setBoard(newBoard);
-    } else if (newPosition !== path[path.length - 1]) {
-      if (!isRosette) {
+    } else {
+      if (!isRosette && newPosition !== 10) {
         setPlayerTurn(playerTurn === 1 ? 2 : 1);
+      }
+    }
+
+    if (newPosition === 10 || isRosette) {
+      setDiceRoll(0);
+      if (newPosition === 10) {
+        setDiceRoll(rollDice());
       }
     }
 
