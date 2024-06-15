@@ -36,7 +36,7 @@ const Home = () => {
         </div>
         {[...Array(5)].map((_, i) => (
           <div className="game-box" key={i}>
-            <img src="/images/background1.jpg" alt="Placeholder Thumbnail" />
+            <img src="/images/background.jpg" alt="Placeholder Thumbnail" />
           </div>
         ))}
       </div>

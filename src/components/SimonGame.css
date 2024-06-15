@@ -1,31 +1,31 @@
 .simon-app {
-  background-image: url(../../public/images/simongamebackground.png);
+  background-image: url(../../public/images/simongamebackground.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .simon-board {
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   gap: 10px;
-  justify-content: center;
   margin-bottom: 20px;
 }
 
 .simon-square {
-  width: 100px;
-  height: 100px;
+  cursor: pointer;
   background-color: lightgray;
   border: 2px solid darkgray;
-  cursor: pointer;
+  width: 100px;
+  height: 100px; 
 }
 
 .simon-square.simon-active {
@@ -33,16 +33,16 @@
 }
 
 .game-button {
-  background-color: #4CAF50;
   border: none;
-  color: white;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
+  color: white;
+  background-color: #4CAF50;
+  padding: 15px 32px;
   font-size: 16px;
   margin-top: 20px;
-  cursor: pointer;
   border-radius: 4px;
 }
 
