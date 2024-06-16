@@ -6,6 +6,7 @@ const SimonGame = () => {
   const [userSequence, setUserSequence] = useState([]);
   const [isUserTurn, setIsUserTurn] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [level, setLevel] = useState(1);
 
   const playSequence = useCallback((sequence) => {
     sequence.forEach((square, index) => {
@@ -23,6 +24,7 @@ const SimonGame = () => {
     const newSequence = [...sequence, Math.floor(Math.random() * 9)];
     setSequence(newSequence);
     setUserSequence([]);
+    setLevel((prevLevel) => prevLevel + 1);
     playSequence(newSequence);
   }, [sequence, playSequence]);
 
@@ -49,6 +51,7 @@ const SimonGame = () => {
     const newSequence = [Math.floor(Math.random() * 9)];
     setSequence(newSequence);
     setUserSequence([]);
+    setLevel(1);
     setGameOver(false);
     setTimeout(() => {
       playSequence(newSequence);
@@ -71,7 +74,8 @@ const SimonGame = () => {
 
   return (
     <div className="simon-app">
-      <h1>Simon Game</h1>
+      <h1 className="simon-title">Simon Game</h1>
+      <h2 className="simon-level">Level: {level}</h2>
       <div className="simon-board">
         {Array.from({ length: 9 }, (_, index) => (
           <div
