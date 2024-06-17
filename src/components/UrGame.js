@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UrGame.css';
+import RuleModal from './RuleModal.js';
 
 const UrGame = () => {
   const initialBoard = Array(21).fill(null);
@@ -15,11 +16,16 @@ const UrGame = () => {
   const [player1OffBoard, setPlayer1OffBoard] = useState(0);
   const [player2OffBoard, setPlayer2OffBoard] = useState(0);
   const [selectedPiece, setSelectedPiece] = useState(null);
+  const [showModal, setShowModal] = useState(true);
 
   const paths = [
-    [9, 6, 3, 0, 1, 4, 7, 10, 11, 12, 15, 18, 19, 16], 
-    [11, 8, 5, 2, 1, 4, 7, 10, 13, 14, 17, 20, 19, 16] 
+    [9, 6, 3, 0, 1, 4, 7, 10, 11, 12, 15, 18, 19, 16],
+    [11, 8, 5, 2, 1, 4, 7, 10, 13, 14, 17, 20, 19, 16]
   ];
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const rollDice = () => {
     if (diceRoll === 0) {
@@ -47,7 +53,7 @@ const UrGame = () => {
     const newPosition = path[newPos];
 
     if (newBoard[newPosition] === null) {
-      if ((playerTurn === 1 && player1Pieces[selectedPiece.split('-')[1]]) || 
+      if ((playerTurn === 1 && player1Pieces[selectedPiece.split('-')[1]]) ||
           (playerTurn === 2 && player2Pieces[selectedPiece.split('-')[1]])) {
         return;
       }
@@ -180,6 +186,7 @@ const UrGame = () => {
 
   return (
     <div className="ur-game-container">
+      {showModal && <RuleModal closeModal={closeModal} />}
       <h2>The Royal Game of Ur</h2>
       <div className="board-container">
         <div className="board">

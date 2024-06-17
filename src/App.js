@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './components/styles.css';
 import './components/HomePage.css'
-import CarGame from './components/CarGame';
-import UrGame from './components/UrGame';
-import MemoryGame from './components/MemoryGame';
-import VerbalMemory from './components/VerbalMemory';
-import NumberMemory from './components/NumberMemory';
-import SimonGame from './components/SimonGame'
+import CarGame from './components/CarGame.js';
+import UrGame from './components/UrGame.js';
+import MemoryGame from './components/MemoryGame.js';
+import VerbalMemory from './components/VerbalMemory.js';
+import NumberMemory from './components/NumberMemory.js';
+import SimonGame from './components/SimonGame.js'
 
 const Home = () => {
   return (

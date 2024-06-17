@@ -1,4 +1,3 @@
-/* Memory Game CSS */
 .memory-game-container {
   background-image: url('../../public/images/memorygamebackground.jpg');
   text-align: center;
@@ -60,7 +59,7 @@
   margin-top: 20px;
 }
 
-/* Verbal Memory CSS */
+/* Verbal Memory */
 .verbal-memory-container {
   background-image: url(../../public/images/verbalgamebackground.jpg);
   text-align: center;
@@ -118,7 +117,7 @@
   background-color: #111;
 }
 
-/* Number Memory CSS */
+/* Number Memory */
 .number-memory-container {
   background-image: url(../../public/images/numbergamebackground.jpg);
   background-size: cover;

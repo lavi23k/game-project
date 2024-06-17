@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CarGame.css';
 
-const cars = [
-  { name: "Audi 80", year: 1994, image: '/images/cars/audi_80.jpg' },
-  { name: "BMW 3.0 CSL", year: 1975, image: '/images/cars/bmw_csl.webp' },
-  { name: "BMW M1", year: 1979, image: '/images/cars/bmw_m1.jpg' },
-  { name: "Mercedes-Benz C250", year: 2014, image: '/images/cars/mercedes_c250.jpg' },
-  { name: "Kia Sportage", year: 1996, image: '/images/cars/kia_sportage.jpg' },
-  { name: "Hyundai Sonata", year: 2009, image: '/images/cars/hyundai_sonata.jpg' },
-  { name: "Toyota Corolla", year: 1998, image: '/images/cars/toyota_carolla.jpg' },
-  { name: "Ford F-150", year: 2004, image: '/images/cars/ford_f150.jpg' },
-  { name: "Nissan Primera SX", year: 2005, image: '/images/cars/nissan_primera.jpg' },
-  { name: "Mercedes-Benz E55 AMG", year: 2004, image: '/images/cars/mercedes_e55.jpg' }
-];
-
 const CarGame = () => {
+  const [cars, setCars] = useState([]);
   const [currentRound, setCurrentRound] = useState(1);
   const [currentGuess, setCurrentGuess] = useState('');
   const [score, setScore] = useState(0);
@@ -22,6 +10,19 @@ const CarGame = () => {
   const [gameOver, setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
   const [guessSubmitted, setGuessSubmitted] = useState(false);
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await fetch('/api/cars');
+        const data = await response.json();
+        setCars(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchCars();
+  }, []);
 
   const handleGuessChange = (e) => {
     const value = e.target.value;
@@ -66,12 +67,14 @@ const CarGame = () => {
     setGameStarted(true);
   };
 
+  if (cars.length === 0) return <p>Loading...</p>;
+
   return (
     <div className="car-game-container car-game-background">
       {!gameStarted ? (
         <div className="start-screen">
           <h1>Car Guessing Game</h1>
-          <p><b>Guess the year of the car to score points. The closer you are, the more points you get!</b></p>
+          <p><b>Guess the year of the car to score points</b></p>
           <button className="start-button" onClick={handleStartGame}>Start</button>
         </div>
       ) : gameOver ? (
