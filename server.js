@@ -5,21 +5,23 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import { Pool } from 'pg';
 import App from './App';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const port = 3000;
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'CarGame',
-  password: 'Gw-77kuXan9',
-  port: 5432,
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.get('/api/cars', async (req, res) => {
   try {
