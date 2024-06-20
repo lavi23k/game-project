@@ -4,26 +4,26 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@babel/cli": "^7.24.7",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/register": "^7.24.6",
+    "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
+    "eslint-config-react-app": "^7.0.1",
+    "express": "^4.19.2",
     "pg": "^8.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
-    "styled-components": "^6.1.11",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "server": "nodemon --exec babel-node server.js"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -44,15 +44,17 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/node": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
-    "@babel/preset-react": "^7.24.7",
-    "@babel/register": "^7.24.6"
+    "@babel/preset-react": "^7.24.7"
   },
   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-private-property-in-object"
     ]
   }
 }
