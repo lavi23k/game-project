@@ -1,20 +1,16 @@
-require('@babel/register')({
-  presets: ['@babel/preset-env', '@babel/preset-react']
-});
-
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import express from 'express';
-import bodyParser from 'body-parser';
 import path from 'path';
+import bodyParser from 'body-parser';
 import { Pool } from 'pg';
-import App from './App';
 import dotenv from 'dotenv';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from '../src/App';
 
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3001;
 
 const pool = new Pool({
   user: process.env.PG_USER,
@@ -25,7 +21,7 @@ const pool = new Pool({
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 
 app.get('/api/cars', async (req, res) => {
   try {
@@ -38,7 +34,7 @@ app.get('/api/cars', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  const html = ReactDOMServer.renderToString(<App />);
+  const html = renderToString(<App />);
   res.send(renderFullPage(html));
 });
 

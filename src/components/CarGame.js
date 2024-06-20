@@ -15,10 +15,13 @@ const CarGame = () => {
     const fetchCars = async () => {
       try {
         const response = await fetch('/api/cars');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         const data = await response.json();
         setCars(data);
       } catch (err) {
-        console.error(err);
+        console.error('Fetch error:', err);
       }
     };
     fetchCars();
