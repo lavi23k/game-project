@@ -34,7 +34,12 @@ const Home = () => {
             <img src="/images/simongame.jpg" alt="Simon Game Thumbnail" />
           </Link>
         </div>
-        {[...Array(5)].map((_, i) => (
+        <div className="game-box">
+          <Link to="/fillomino-game">
+            <img src="/images/fillominogame.jpg" alt="Fillomino Game Thumbnail" />
+          </Link>
+        </div>
+        {[...Array(4)].map((_, i) => (
           <div className="game-box" key={i}>
             <img src="/images/background.jpg" alt="Placeholder Thumbnail" />
           </div>
