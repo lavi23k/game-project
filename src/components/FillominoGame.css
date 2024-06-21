@@ -1,0 +1,62 @@
+.fillomino-body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  justify-content: center;
+}
+
+#fillomino-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fillomino-number-panel {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.fillomino-number-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.fillomino-number-button.selected {
+  background-color: #ddd;
+}
+
+.fillomino-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-gap: 1px;
+}
+
+.fillomino-grid-cell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.fillomino-grid-cell.given {
+  background-color: #ccc;
+}
+
+#fillomino-control-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}

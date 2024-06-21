@@ -8,6 +8,7 @@ import MemoryGame from './components/MemoryGame.js';
 import VerbalMemory from './components/VerbalMemory.js';
 import NumberMemory from './components/NumberMemory.js';
 import SimonGame from './components/SimonGame.js'
+import FillominoGame from './components/FillominoGame.js';
 
 const Home = () => {
   return (
@@ -65,6 +66,7 @@ const App = () => {
         <Route path="/verbal-memory" element={<VerbalMemory />} />
         <Route path="/number-memory" element={<NumberMemory />} />
         <Route path="/simon-game" element={<SimonGame />} />
+        <Route path="/fillomino-game" element={<FillominoGame />} />
       </Routes>
     </Router>
   );
