@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './FillominoGame.css';
 
+const initialPuzzle = [
+    [5, 0, 0, 1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 3, 4, 1, 0, 6, 5, 0],
+    [0, 1, 0, 0, 0, 1, 0, 0],
+    [0, 4, 1, 0, 0, 0, 0, 6],
+    [1, 0, 0, 5, 0, 0, 0, 1],
+    [3, 0, 1, 0, 0, 7, 5, 0],
+    [0, 0, 1, 0, 0, 1, 0, 4]
+];
+
+const solution = [
+    [5, 5, 5, 1, 6, 6, 1, 1],
+    [1, 5, 5, 6, 6, 6, 1, 5],
+    [3, 3, 4, 1, 6, 6, 5, 5],
+    [3, 1, 4, 4, 4, 1, 5, 6],
+    [4, 4, 1, 7, 7, 7, 7, 6],
+    [1, 7, 7, 5, 7, 7, 7, 1],
+    [3, 7, 1, 5, 7, 7, 5, 4],
+    [3, 3, 1, 7, 7, 1, 4, 4]
+];
+
 const generatePuzzle = () => {
-    // Example logic to generate a new puzzle
-    const puzzle = [
-        [1, 1, 1, 1, 8, 0, 0, 0],
-        [5, 5, 0, 1, 4, 0, 0, 0],
-        [2, 0, 0, 6, 6, 5, 0, 0],
-        [1, 0, 6, 0, 0, 5, 0, 8],
-        [0, 6, 0, 0, 5, 4, 0, 1],
-        [7, 0, 7, 0, 3, 0, 4, 0],
-        [0, 7, 0, 3, 0, 0, 0, 0],
-        [0, 1, 0, 7, 0, 0, 0, 0]
-    ];
-    // You can replace this with a more complex generation logic
-    return puzzle;
+    return initialPuzzle.map(row => [...row]);
 };
 
 const FillominoGame = () => {
@@ -27,16 +37,18 @@ const FillominoGame = () => {
 
     const handleCellClick = (row, col) => {
         const newGrid = grid.map(arr => [...arr]);
-        if (newGrid[row][col] === 0 || newGrid[row][col] !== parseInt(selectedNumber)) {
-            newGrid[row][col] = parseInt(selectedNumber);
-        } else {
-            newGrid[row][col] = 0;
+        if (initialPuzzle[row][col] === 0) {
+            if (newGrid[row][col] === 0 || newGrid[row][col] !== parseInt(selectedNumber)) {
+                newGrid[row][col] = parseInt(selectedNumber);
+            } else {
+                newGrid[row][col] = 0;
+            }
+            setGrid(newGrid);
         }
-        setGrid(newGrid);
     };
 
     const showAnswer = () => {
-        setGrid(generatePuzzle());
+        setGrid(solution.map(row => [...row]));
     };
 
     const restartPuzzle = () => {
@@ -71,7 +83,7 @@ const FillominoGame = () => {
                     {grid.map((row, rowIndex) => row.map((cell, colIndex) => (
                         <div
                             key={`${rowIndex}-${colIndex}`}
-                            className={`fillomino-grid-cell ${cell !== 0 ? 'given' : ''}`}
+                            className={`fillomino-grid-cell ${initialPuzzle[rowIndex][colIndex] !== 0 ? 'given' : ''}`}
                             onClick={() => handleCellClick(rowIndex, colIndex)}
                         >
                             {cell !== 0 ? cell : ''}

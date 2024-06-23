@@ -3,9 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   margin: 0;
-  justify-content: center;
 }
 
 #fillomino-game-container {
@@ -21,14 +21,14 @@
 }
 
 .fillomino-number-button {
-  width: 30px;
-  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #000;
   cursor: pointer;
   background-color: #fff;
+  border: 1px solid #000;
+  width: 30px;
+  height: 30px;  
 }
 
 .fillomino-number-button.selected {
@@ -42,17 +42,17 @@
 }
 
 .fillomino-grid-cell {
-  width: 50px;
-  height: 50px;
-  display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #000;
+  display: flex;
   cursor: pointer;
+  border: 1px solid #999;
+  width: 50px;
+  height: 50px;
 }
 
 .fillomino-grid-cell.given {
-  background-color: #ccc;
+  background-color: #aaa;
 }
 
 #fillomino-control-buttons {
