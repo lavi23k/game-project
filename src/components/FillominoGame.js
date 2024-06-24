@@ -30,6 +30,7 @@ const generatePuzzle = () => {
 const FillominoGame = () => {
     const [grid, setGrid] = useState(generatePuzzle());
     const [selectedNumber, setSelectedNumber] = useState('1');
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         setGrid(generatePuzzle());
@@ -53,6 +54,25 @@ const FillominoGame = () => {
 
     const restartPuzzle = () => {
         setGrid(generatePuzzle());
+        setMessage('');
+    };
+
+    const checkSolution = () => {
+        let mistakes = false;
+        const newGrid = grid.map((row, rowIndex) =>
+            row.map((cell, colIndex) => {
+                if (cell !== 0 && cell !== solution[rowIndex][colIndex]) {
+                    mistakes = true;
+                }
+                return cell;
+            })
+        );
+        if (mistakes) {
+            setMessage('Mistakes Found');
+        } else {
+            setMessage('No Mistakes Found');
+        }
+        setGrid(newGrid);
     };
 
     useEffect(() => {
@@ -93,7 +113,9 @@ const FillominoGame = () => {
                 <div id="fillomino-control-buttons">
                     <button onClick={showAnswer}>Answer</button>
                     <button onClick={restartPuzzle}>Restart</button>
+                    <button onClick={checkSolution}>Check</button>
                 </div>
+                {message && <div id="fillomino-message">{message}</div>}
             </div>
         </div>
     );

@@ -55,8 +55,17 @@
   background-color: #aaa;
 }
 
+.fillomino-grid-cell.correct {
+  background-color: #b0ffb0;
+}
+
 #fillomino-control-buttons {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+}
+
+#fillomino-message {
+  margin-top: 20px;
+  font-weight: bold;
 }
