@@ -70,8 +70,6 @@ const CarGame = () => {
     setGameStarted(true);
   };
 
-  if (cars.length === 0) return <p>Loading...</p>;
-
   return (
     <div className="car-game-container car-game-background">
       {!gameStarted ? (
