@@ -38,6 +38,8 @@ const CarGame = () => {
     if (currentGuess.length !== 4) return;
 
     const car = cars[currentRound - 1];
+    if (!car) return;
+
     const yearGuess = parseInt(currentGuess, 10);
     const points = Math.max(0, 100 - Math.abs(car.year - yearGuess));
 
@@ -87,10 +89,12 @@ const CarGame = () => {
       ) : (
         <div>
           <h1>Round {currentRound}/{cars.length}</h1>
-          <div className="car-image-container">
-            <img src={cars[currentRound - 1].image} alt={cars[currentRound - 1].name} className="car-image"/>
-          </div>
-          <h2 className="car-name">{cars[currentRound - 1].name}</h2>
+          {cars[currentRound - 1] && (
+            <div className="car-image-container">
+              <img src={`http://localhost:3001${cars[currentRound - 1].image}`} alt={cars[currentRound - 1].name} className="car-image"/>
+            </div>
+          )}
+          <h2 className="car-name">{cars[currentRound - 1]?.name}</h2>
           {!guessSubmitted ? (
             <>
               <input
@@ -107,8 +111,8 @@ const CarGame = () => {
             </>
           ) : (
             <div className="result">
-              <p className="result-text">Correct Year: {cars[currentRound - 1].year}</p>
-              <p className="points">Points: {results[currentRound - 1].points}</p>
+              <p className="result-text">Correct Year: {cars[currentRound - 1]?.year}</p>
+              <p className="points">Points: {results[currentRound - 1]?.points}</p>
               <button className="next-button" onClick={handleNextRound}>
                 Next
               </button>
