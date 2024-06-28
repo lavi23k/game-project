@@ -1,14 +1,26 @@
-.memory-game-container {
+.memory-game-page {
   background-image: url('../../public/images/memorygamebackground.jpg');
-  text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: 0;
+}
+
+.memory-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+}
+
+.memory-game-content {
+  transform: translateY(-70px);
 }
 
 .memory-game-selection {
@@ -26,7 +38,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: 300px;
-  
 }
 
 .memory-game-button {
@@ -42,7 +53,6 @@
   font-size: 16px;
   border-radius: 5px;
   margin-top: 10px;
-  
 }
 
 .memory-game-button:hover {
@@ -60,21 +70,31 @@
 }
 
 /* Verbal Memory */
-.verbal-memory-container {
-  background-image: url(../../public/images/verbalgamebackground.jpg);
-  text-align: center;
+.verbal-memory-page {
+  background-image: url(../../public/images/memorygamebackground2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: 0;
+}
+
+.verbal-memory-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+  transform: translateY(-60px);
 }
 
 .verbal-memory-info {
   font-weight: bold;
+  color: #FF5733;
   margin-bottom: 20px;
 }
 
@@ -117,18 +137,28 @@
   background-color: #111;
 }
 
+
 /* Number Memory */
-.number-memory-container {
-  background-image: url(../../public/images/numbergamebackground.jpg);
+.number-memory-page {
+  background-image: url(../../public/images/memorygamebackground2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.number-memory-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
+  height: 80vh;
+  transform: translateY(-70px);
 }
 
 .number-memory-info {

@@ -52,22 +52,26 @@ const VerbalMemory = () => {
 
   if (isGameOver) {
     return (
-      <div className="verbal-memory-container">
-        <h1 className="verbal-memory-round">Game Over</h1>
-        <p className="verbal-memory-lives">Total Rounds: {round - 1}</p>
-        <button className="verbal-memory-button" onClick={() => window.location.reload()}>Play Again</button>
+      <div className="verbal-memory-page">
+        <div className="verbal-memory-container">
+          <h1 className="verbal-memory-round">Game Over</h1>
+          <p className="verbal-memory-lives">Total Rounds: {round - 1}</p>
+          <button className="verbal-memory-button" onClick={() => window.location.reload()}>Play Again</button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="verbal-memory-container">
-      <h1 className="verbal-memory-round">Round {round}</h1>
-      <p className="verbal-memory-lives">Lives: {lives}</p>
-      <p className="verbal-memory-info">{currentWord}</p>
-      <div className="verbal-memory-buttons">
-        <button className="verbal-memory-button" onClick={() => handleGuess(true)}>Seen</button>
-        <button className="verbal-memory-button" onClick={() => handleGuess(false)}>New</button>
+    <div className="verbal-memory-page">
+      <div className="verbal-memory-container">
+        <h1 className="verbal-memory-round">Round {round}</h1>
+        <p className="verbal-memory-lives">Lives: {lives}</p>
+        <p className="verbal-memory-info">{currentWord}</p>
+        <div className="verbal-memory-buttons">
+          <button className="verbal-memory-button" onClick={() => handleGuess(true)}>Seen</button>
+          <button className="verbal-memory-button" onClick={() => handleGuess(false)}>New</button>
+        </div>
       </div>
     </div>
   );

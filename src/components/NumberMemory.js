@@ -60,44 +60,48 @@ const NumberMemory = () => {
 
   if (isGameOver) {
     return (
-      <div className="number-memory-container">
-        <h1 className="number-memory-round">Round {round - 1}</h1>
-        <p className="number-memory-feedback">Number</p>
-        <p className="number-memory-info">{number}</p>
-        <p className="number-memory-feedback">Your answer</p>
-        <p className="number-memory-info">
-          <span dangerouslySetInnerHTML={{ __html: renderInputWithStrikethrough(lastInput, number) }} />
-        </p>
-        <button className="number-memory-submit-button" onClick={() => window.location.reload()}>Play Again</button>
+      <div className="number-memory-page">
+        <div className="number-memory-container">
+          <h1 className="number-memory-round">Round {round - 1}</h1>
+          <p className="number-memory-feedback">Number</p>
+          <p className="number-memory-info">{number}</p>
+          <p className="number-memory-feedback">Your answer</p>
+          <p className="number-memory-info">
+            <span dangerouslySetInnerHTML={{ __html: renderInputWithStrikethrough(lastInput, number) }} />
+          </p>
+          <button className="number-memory-submit-button" onClick={() => window.location.reload()}>Play Again</button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="number-memory-container">
-      <h1 className="number-memory-round">Round {round}</h1>
-      {showInput ? (
-        <>
-          <p className="number-memory-feedback">What was the number?</p>
-          <input
-            type="text"
-            className="number-memory-input"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-          />
-          <button className="number-memory-submit-button" onClick={handleSubmit}>Submit</button>
-        </>
-      ) : (
-        <>
-          <p className="number-memory-feedback">Number</p>
-          <p className="number-memory-info">{number}</p>
-          <div className="number-memory-timer">
-            <div className="progress-bar">
-              <div className="progress" style={{ width: `${(timer / initialTimer) * 100}%` }}></div>
+    <div className="number-memory-page">
+      <div className="number-memory-container">
+        <h1 className="number-memory-round">Round {round}</h1>
+        {showInput ? (
+          <>
+            <p className="number-memory-feedback">What was the number?</p>
+            <input
+              type="text"
+              className="number-memory-input"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+            />
+            <button className="number-memory-submit-button" onClick={handleSubmit}>Submit</button>
+          </>
+        ) : (
+          <>
+            <p className="number-memory-feedback">Number</p>
+            <p className="number-memory-info">{number}</p>
+            <div className="number-memory-timer">
+              <div className="progress-bar">
+                <div className="progress" style={{ width: `${(timer / initialTimer) * 100}%` }}></div>
+              </div>
             </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
