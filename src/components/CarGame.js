@@ -14,7 +14,7 @@ const CarGame = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch('/api/cars');
+        const response = await fetch('http://localhost:3001/api/cars');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -91,7 +91,7 @@ const CarGame = () => {
           <h1>Round {currentRound}/{cars.length}</h1>
           {cars[currentRound - 1] && (
             <div className="car-image-container">
-              <img src={`http://localhost:3001${cars[currentRound - 1].image}`} alt={cars[currentRound - 1].name} className="car-image"/>
+              <img src={cars[currentRound - 1].image} alt={cars[currentRound - 1].name} className="car-image"/>
             </div>
           )}
           <h2 className="car-name">{cars[currentRound - 1]?.name}</h2>
