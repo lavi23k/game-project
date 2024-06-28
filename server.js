@@ -5,7 +5,7 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { fetchCars } from './query.js';
+import { fetchCars } from './CarGameDatabase.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

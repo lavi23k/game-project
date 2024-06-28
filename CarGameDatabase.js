@@ -14,7 +14,7 @@ const pool = new Pool({
 
 export async function fetchCars() {
   try {
-    const res = await pool.query('SELECT * FROM cars');
+    const res = await pool.query('SELECT * FROM cars ORDER BY RANDOM() LIMIT 10;');
     return res.rows;
   } catch (err) {
     console.error('Error executing query', err.stack);
